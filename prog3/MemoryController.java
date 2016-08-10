@@ -24,7 +24,7 @@ public class MemoryController {
 	/* the standard deviation of the normal distribution */
 	private double sd;
 	/* array which holds the reference string */
-	List<Integer> references = new ArrayList<Integer>();
+	List<Integer> references;
 	/* random object from the  rnorm class */
 	rnorm rando;
 	/* simulation / case number */
@@ -35,6 +35,7 @@ public class MemoryController {
 	}
 	
 	private void parseInput() throws IOException {
+		references = new ArrayList<Integer>();
 		nf = in.nextInt();
 		if(nf == 0)
 			throw new IOException();
@@ -74,12 +75,12 @@ public class MemoryController {
 			Algorithm opt = new OPT(nf,np,nr,references);
 			opt.compute();
 			opt.print();
-	/*		Algorithm fifo = new FIFO(nf,np,nr,references);
+			Algorithm fifo = new FIFO(nf,np,nr,references);
 			fifo.compute();
 			fifo.print();
 			Algorithm lru = new LRU(nf,np,nr,references);
 			lru.compute();
-			lru.print();  */
+			lru.print();  
 			System.out.println(); 
 		}
 		

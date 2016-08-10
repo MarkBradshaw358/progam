@@ -10,11 +10,15 @@ public class OPT extends Algorithm {
 	/* page table array */
 	List<Integer> pageTable;
 	
+	/* Constructor accepts all arguments necessary for an algorithm and initializes the page table array */
 	public OPT(int nf, int np, int nr, List<Integer> references) {
 		super(nf, np, nr, references);
 		pageTable = new ArrayList<Integer>(nf);
 	}
-
+	
+	/** This method computes the amount of page faults which would occur by using the OPT (optimal page
+	 *  transfered) algorithm.
+	 */
 	@Override
 	public void compute() {
 		pageCount = 0;
