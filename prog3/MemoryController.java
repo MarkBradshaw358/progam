@@ -3,6 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/** MemoryController class which parses the input stream, and sends the variables
+ * to the individual algorithms which compute and print.
+ * @author Mark Bradshaw
+ *
+ */
 public class MemoryController {
 
 	Scanner in = new Scanner(System.in);
@@ -33,7 +38,10 @@ public class MemoryController {
 	public MemoryController() {
 		
 	}
-	
+	/** Parses the input into variables to be sent to the algorithms
+	 * @param none
+	 * @throws IOException
+	 */
 	private void parseInput() throws IOException {
 		references = new ArrayList<Integer>();
 		nf = in.nextInt();
@@ -64,6 +72,10 @@ public class MemoryController {
 		
 	}
 
+	/** This function runs the MemoryController commands which send the parsed
+	 * information to the algorithms, then calls their compute and print methods
+	 * @param none
+	 */
 	public void run() {
 		while(true) {
 			try {
@@ -71,13 +83,16 @@ public class MemoryController {
 			} catch (IOException e) {
 				System.exit(0);
 			}
-			System.out.printf("Case %d\n", ++runCount);
+			System.out.printf("Case %d\n", ++runCount);	// Print the case
+			/* Create and run OPT */
 			Algorithm opt = new OPT(nf,np,nr,references);
 			opt.compute();
 			opt.print();
+			/* Create and run FIFO */
 			Algorithm fifo = new FIFO(nf,np,nr,references);
 			fifo.compute();
 			fifo.print();
+			/* Create and run LRU */
 			Algorithm lru = new LRU(nf,np,nr,references);
 			lru.compute();
 			lru.print();  

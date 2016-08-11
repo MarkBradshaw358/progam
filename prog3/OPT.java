@@ -83,6 +83,9 @@ public class OPT extends Algorithm {
 		faultRate = (double) pageFault / (double) nr;
 	}
 
+	/** This method prints the OPT results by displaying the page faults and the fault rate
+	 *  @param none
+	 */
 	@Override
 	public void print() {
 		System.out.printf("\tOPT: %d faults, fault rate = %.3f\n", pageFault, faultRate);
